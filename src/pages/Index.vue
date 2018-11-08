@@ -29,6 +29,10 @@ export default {
   },
   created () {
     this.books = this.$q.localStorage.get.item('books')
+
+    if (!this.$q.localStorage.get.item('auth-user')) {
+      this.$router.push('/login')
+    }
   },
   methods: {
     openBook (id) {
